@@ -2,6 +2,7 @@ import numpy as np
 import ehtim as eh
 import ngehtsim.obs.obs_generator as og
 import glob
+from astropy.time import Time
 
 #######################################################
 # inputs
@@ -56,8 +57,8 @@ settings = {'sites': sites,
             'year': 2025,
             't_start': 0.0,
             'dt': 24.0,
-            't_int': 300.0,
-            't_rest': 600.0,
+            't_int': 600.0,
+            't_rest': 1200.0,
             'weather': 'random'}
 
 #######################################################
