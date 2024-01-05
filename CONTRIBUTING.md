@@ -16,8 +16,5 @@ Using a basic [feature branch workflow](https://www.atlassian.com/git/tutorials/
 
     * Only rebase/squash commits that __have not been pushed__
 
-1. Ensure all assigned success criteria are satisfied, including the following:
-
-    * _List criteria to satisfy/tests to pass_
-
 1. Open a pull request to merge the development branch back to the appropriate target branch.
+Ensure all checks have passed before merging.

@@ -1,4 +1,4 @@
-**[DOCS][] | [STRUCTURE][] | [GETTING STARTED][] | [BUILD][] | [RUN][] | [CI/CD][] | [TEST][] | [RELEASE][] | [CHANGE CONTROL][] | [CONTRIBUTING][] | [LICENSING][]**
+**[DOCS][] | [STRUCTURE][] | [GETTING STARTED][] | [CI/CD][] | [TEST][] | [RELEASE][] | [CHANGE CONTROL][] | [CONTRIBUTING][] | [LICENSING][]**
 
 # ngeht-arrayperformance-sims
 [r]: #repo
@@ -14,8 +14,6 @@ This software is developed in conformance with [ngEHT Software Guidelines v0.1.0
 # Documentation
 [docs]: #documentation "Documentation"
 
-
-
 ## Reference documents  
 | Document | Subject | Version and/or date | Issued by |
 |:---:|---|:---:|:---:|
@@ -29,28 +27,31 @@ a specified VLBI array configuration. Each simulation is a self-contained Python
 scripts, and includes a README that describes how to install the necessary dependencies and run the
 simulation.
 
-|Path|Description|Version-controlled|
-|--|--|:--:|
-| ~~docs/~~     | (TODO) Documentation | Yes |
-| **sims/**     | Simulations, one per subdirectory  | Yes |
-| ~~tests/~~    | (TODO) Tests for the simulations | Yes |
-| ~~tools/~~    | (TODO) Scripts and things to aid development, not part of end software | Yes |
-| **.github/**  | GitHub Actions, etc. | Yes |
-| [**.gitignore**](.gitignore)  | Lists what *not* to version control at the application level | Yes |
-| [**README.md**](README.md) | This file | Yes |
+|Path|Description|
+|--|--|
+| **sims/**     | Simulations, one per subdirectory |
+| **.github/**  | GitHub Actions, etc. |
+| [**.gitignore**](.gitignore)  | Lists what *not* to version control at the application level |
+| [**README.md**](README.md) | This file |
+
+### Directories not currently present or used
+|Path|Description|
+|--|--|
+| .vscode/  | VS Code stuff like build tasks; don't include user settings |
+| docs/     | Documentation |
+| tests/    | Tests for the simulations |
+| tools/    | Scripts and things to aid development, not part of end software |
 
 # Getting Started
 [getting started]: #getting-started "Getting Started"
 
 These instructions will get a copy of the repository up and running on your local machine for
-development and testing purposes. See [deployment][] for notes on how to deploy the project on a
-live system.
+simulation development, testing, and execution.
 
 ## Prerequisites
 
-This section describes the things you need to build, test, and deploy the software and how to install and configure them.
-
-*Describe the requierments on the build, test, and deployment environments here. Or, reference a document that describes them.*
+As each simulation may have unique prerequisites and dependencies, they are described in 
+simulation-specific READMEs.
 
 ## Setting up the environment
 
@@ -58,14 +59,12 @@ Here is a step by step guide to getting a development & execution environment up
 They are provided assuming a UNIX environment; some adaptation may be required if you are running
 on another platform.
 
-1. Create a Python virtual environment in a directory named `.venv` and activate it  
-    _While you could do this without a virtual environment, it is not recommended_
-
-    ```
-    $ python -m venv .venv
-    $ source .venv/bin/activate
-    (.venv) $ python -m pip install --upgrade pip
-    ```
+Create a Python virtual environment in a directory named `.venv` and activate it. _While you could do this without a virtual environment, it is not recommended_
+```
+$ python -m venv .venv
+$ source .venv/bin/activate
+(.venv) $ python -m pip install --upgrade pip
+```
 
 You are now ready to develop and execute simulations. See the README for each simulation for any
 further instrunctions on setting up the environment or executing the simulation.
@@ -77,8 +76,6 @@ GitHub Actions are used to automate testing the software. See the files under [`
 
 # Testing the software
 [test]: #testing-the-software "Testing the software"
-
-*Describe how to test the software. Use all pertinent sections below.*
 
 ## Manual tests
 
@@ -94,25 +91,25 @@ The table below shows the automated tests carried out with GiHub Actions.
 # Releasing the software
 [release]: #releasing-the-software "Releasing the software"
 
-* ## Versioning scheme
+## Versioning scheme
 
-    Versions of software are recorded through the use of Git tags. Tags are in the form of
-    `vX.Y.Z` where
+Versions of software are recorded through the use of Git tags that conform to
+[Semantic Versioning](https://semver.org). Tags are in the form of `vX.Y.Z` where
+* `X` is the major version number
+    * incremented for significant functionality updates and changes which break previous interfaces
+* `Y` is the minor version number
+    * incremented for new features, new interface additions, software releases
+* `Z` is the patch version number
+    * incremented for bug fixes, packaging changes, minor tweaks
 
-    * `X` is the major version number
-    * `Y` is the minor version number
-    * `Z` is the patch version number
+The version number applies to all simulations in the repository. It is therefore possible for a
+simulation to remain unchanged through various version number increments, since it may be that only
+other simulations have been modified.
 
-    The major, minor, and patch numbers are used as defined in
-    [Semantic Versioning](https://semver.org).
+## Release procedure
 
-    The version number is obtained from the most recent Git tag matching the regex `^v\d+\.\d+\.\d+$`.
-
-* ## Release procedure
-
-    This repository is not intended to be a deployable Python package (i.e., not available on PyPI
-    or installable with `pip install`). Therefore, releases involve simply tagging the `main`
-    branch with the appropriate version string when a new release is desired.
+This repository is not intended to be a deployable Python package. Therefore, releases involve
+simply tagging the `main` branch with the appropriate version string when a new release is desired.
 
 # Deployment / Installation
 [deployment]: #deployment--installation "Deployment / Installation"
