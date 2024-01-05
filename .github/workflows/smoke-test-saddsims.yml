@@ -29,13 +29,15 @@ jobs:
             python-version: ${{ matrix.python-version }}
 
         - name: Install dependencies
+          working-directory: ./sims/${{ matrix.sim }}
           run: |
-            cd sims/${{ matrix.sim }}
             python -m pip install --upgrade pip
             pip install -r requirements.txt
 
         - name: Generate data
+          working-directory: ./sims/${{ matrix.sim }}
           run: python ${{ matrix.gendata }}
 
         - name: Run simulation
+          working-directory: ./sims/${{ matrix.sim }}
           run: python ${{ matrix.simscript }}
