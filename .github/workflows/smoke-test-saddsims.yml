@@ -1,16 +1,23 @@
-name: Build Python Package
+name: Smoke test the simulations
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
     check-package:
-      name: Smoke test our package on ${{ matrix.os }}
+      name: Smoke test the simulations on ${{ matrix.os }} with Python ${{ matrix.python-version }}
       runs-on: ${{ matrix.os }}
       strategy:
         matrix:
           os: [ubuntu-latest]
           python-version: ["3.8", "3.9", "3.10", "3.11"]
-          sims: ["SADDsims_FullArray_001", "SADDsims_MonitoringArray_001" ]
+          sim: ["SADDsims_FullArray_001", "SADDsims_MonitoringArray_001" ]
+          include:
+            - sim: SADDsims_FullArray_001
+              gendata: gendata.py
+              simscript: compute_metrics_full_array.py
+            - sim: SADDsims_MonitoringArray_001
+              gendata: gendata.py
+              simscript: compute_metrics_monitoring_array.py
 
       steps:
         - name: Check out source repository
@@ -21,20 +28,10 @@ jobs:
           with:
             python-version: ${{ matrix.python-version }}
 
-        - if: $${{ matrix.sims }}
-          run: cd sims/${{ matrix.sims }}
-
-        - name: Install dependencies
+        - name: Generate data & run simulation
           run: |
+            cd sims/${{ matrix.sims }}
             python -m pip install --upgrade pip
             pip install -r requirements.txt
-
-        - name: Generate data
-          # This depends on some specific naming of files
-          # TODO Do this better!
-          run: python gendata.py
-
-        - name: Run simulation
-          # This depends on some specific naming of files
-          # TODO Do this better!
-          run: python compute_metrics_*.py
+            python ${{ matrix.gendata }}
+            python ${{ matrix.simscript }}
