@@ -1,10 +1,10 @@
-name: Smoke test the simulations
+name: Smoke tests
 
 on: [pull_request]
 
 jobs:
-    check-package:
-      name: Smoke test the simulations on ${{ matrix.os }} with Python ${{ matrix.python-version }}
+    sim-smoke-test:
+      name:  ${{ matrix.sim }} on ${{ matrix.os }} with Python ${{ matrix.python-version }}
       runs-on: ${{ matrix.os }}
       strategy:
         matrix:
@@ -28,10 +28,14 @@ jobs:
           with:
             python-version: ${{ matrix.python-version }}
 
-        - name: Generate data & run simulation
+        - name: Install dependencies
           run: |
             cd sims/${{ matrix.sim }}
             python -m pip install --upgrade pip
             pip install -r requirements.txt
-            python ${{ matrix.gendata }}
-            python ${{ matrix.simscript }}
+
+        - name: Generate data
+          run: python ${{ matrix.gendata }}
+
+        - name: Run simulation
+          run: python ${{ matrix.simscript }}
