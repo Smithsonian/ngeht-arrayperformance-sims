@@ -108,4 +108,5 @@ for iweather in range(Nweather):
 
     # save individual frequency bands
     for iobs, obs in enumerate(obslist):
-        obs.save_uvfits('./uvfits/datafile_'+str(iweather).zfill(4)+'_'+str(int(freqs[iobs]))+'GHz'+'.uvfits')
+        obs.save_uvfits('./uvfits/datafile_' + str(iweather).zfill(4) + '_' + str(int(freqs[iobs]))
+                         + 'GHz' + '.uvfits')
