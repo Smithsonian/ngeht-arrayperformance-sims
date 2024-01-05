@@ -87,6 +87,7 @@ The table below shows the automated tests carried out with GiHub Actions.
 | Workflow | Description | Status |
 |---|---|:---:|
 | [Lint](.github/workflows/lint.yml) | Lints the source code with Flake8 | [![Lint status](https://github.com/Smithsonian/ngeht-arrayperformance-sims/actions/workflows/lint.yml/badge.svg)](https://github.com/Smithsonian/ngeht-arrayperformance-sims/actions) |
+| [Smoke tests](.github/workflows/smoke-test-saddsims.yml) | Tests that the SADD-related simulations can be run. Does *not* verify their outputs, only that nothing breaks during execution! | [![Smoke test status](https://github.com/Smithsonian/ngeht-arrayperformance-sims/actions/workflows/smoke-test-saddsims.yml/badge.svg)](https://github.com/Smithsonian/ngeht-arrayperformance-sims/actions) |
 
 # Releasing the software
 [release]: #releasing-the-software "Releasing the software"
