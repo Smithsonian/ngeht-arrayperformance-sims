@@ -1,0 +1,43 @@
+name: Smoke tests
+
+on: [pull_request]
+
+jobs:
+  sim-smoke-test:
+    name:  ${{ matrix.sim }} on ${{ matrix.os }} with Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        sim: ["SADDsims_FullArray_001", "SADDsims_MonitoringArray_001" ]
+        include:
+          - sim: SADDsims_FullArray_001
+            gendata: gendata.py
+            simscript: compute_metrics_full_array.py
+          - sim: SADDsims_MonitoringArray_001
+            gendata: gendata.py
+            simscript: compute_metrics_monitoring_array.py
+
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        working-directory: ./sims/${{ matrix.sim }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate data
+        working-directory: ./sims/${{ matrix.sim }}
+        run: python ${{ matrix.gendata }}
+
+      - name: Run simulation
+        working-directory: ./sims/${{ matrix.sim }}
+        run: python ${{ matrix.simscript }}

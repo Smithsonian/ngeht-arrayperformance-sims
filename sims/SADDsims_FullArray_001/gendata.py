@@ -1,7 +1,5 @@
-import numpy as np
 import ehtim as eh
 import ngehtsim.obs.obs_generator as og
-import glob
 import os
 
 #######################################################
@@ -11,7 +9,8 @@ import os
 freqs = [86.0, 230.0, 345.0]
 
 # the sites participating in full-array observations
-sites = ['ALMA','APEX','BAJA','CNI','GAM','GLT','HAY','IRAM','JCMT','JELM','KP','KVNPC','KVNYS','LAS','LLA','LMT','NOEMA','OVRO','SMA','SMT','SPT']
+sites = ['ALMA','APEX','BAJA','CNI','GAM','GLT','HAY','IRAM','JCMT','JELM','KP','KVNPC','KVNYS',
+         'LAS','LLA','LMT','NOEMA','OVRO','SMA','SMT','SPT']
 
 # some sites only have access to certain observing bands
 receiver_configuration_overrides = {'ALMA': ['Band7'],
@@ -71,13 +70,13 @@ alpha = 15.0
 alpha2 = 1.5
 
 mod = eh.model.Model()
-mod = mod.add_thick_mring(F0 = f0*F0,
-                          d = 42.0*eh.RADPERUAS,
-                          alpha = alpha*eh.RADPERUAS,
+mod = mod.add_thick_mring(F0=f0*F0,
+                          d=42.0*eh.RADPERUAS,
+                          alpha=alpha*eh.RADPERUAS,
                           beta_list=[-0.4])
-mod = mod.add_thick_mring(F0 = f1*F0,
-                          d = 42.0*eh.RADPERUAS,
-                          alpha = alpha2*eh.RADPERUAS,
+mod = mod.add_thick_mring(F0=f1*F0,
+                          d=42.0*eh.RADPERUAS,
+                          alpha=alpha2*eh.RADPERUAS,
                           beta_list=[-0.4])
 
 #######################################################
@@ -109,4 +108,5 @@ for iweather in range(Nweather):
 
     # save individual frequency bands
     for iobs, obs in enumerate(obslist):
-        obs.save_uvfits('./uvfits/datafile_'+str(iweather).zfill(4)+'_'+str(int(freqs[iobs]))+'GHz'+'.uvfits')
+        obs.save_uvfits('./uvfits/datafile_' + str(iweather).zfill(4) + '_' + str(int(freqs[iobs]))
+                         + 'GHz' + '.uvfits')

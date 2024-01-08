@@ -109,23 +109,25 @@ print('-'*100)
 print('For 86 GHz obs:')
 print('Minimum baseline RMS noise: ' + str(min_bl_rms_noise_86) + ' Jy')
 print('Point source sensitivity: '+str(np.mean(PSS_86)) + ' Jy')
-print('Inverse shortest projected non-intrasite baseline: '+str((1.0/np.mean(min_bl_86))/eh.RADPERUAS) + ' uas')
-print('Inverse longest projected baseline: '+str((1.0/np.mean(max_bl_86))/eh.RADPERUAS) + ' uas')
+print('Inverse shortest projected non-intrasite baseline: ' +
+      str((1.0/np.mean(min_bl_86))/eh.RADPERUAS) + ' uas')
+print('Inverse longest projected baseline: ' + str((1.0/np.mean(max_bl_86))/eh.RADPERUAS) + ' uas')
 print('-'*100)
 
 print('-'*100)
 print('For 230 GHz obs:')
 print('Minimum baseline RMS noise: ' + str(min_bl_rms_noise_230) + ' Jy')
 print('Point source sensitivity: '+str(np.mean(PSS_230)) + ' Jy')
-print('Inverse shortest projected non-intrasite baseline: '+str((1.0/np.mean(min_bl_230))/eh.RADPERUAS) + ' uas')
-print('Inverse longest projected baseline: '+str((1.0/np.mean(max_bl_230))/eh.RADPERUAS) + ' uas')
+print('Inverse shortest projected non-intrasite baseline: ' +
+      str((1.0/np.mean(min_bl_230))/eh.RADPERUAS) + ' uas')
+print('Inverse longest projected baseline: ' + str((1.0/np.mean(max_bl_230))/eh.RADPERUAS) + ' uas')
 print('-'*100)
 
 print('-'*100)
 print('For 345 GHz obs:')
 print('Minimum baseline RMS noise: ' + str(min_bl_rms_noise_345) + ' Jy')
 print('Point source sensitivity: '+str(np.mean(PSS_345)) + ' Jy')
-print('Inverse shortest projected non-intrasite baseline: '+str((1.0/np.mean(min_bl_345))/eh.RADPERUAS) + ' uas')
-print('Inverse longest projected baseline: '+str((1.0/np.mean(max_bl_345))/eh.RADPERUAS) + ' uas')
+print('Inverse shortest projected non-intrasite baseline: ' +
+      str((1.0/np.mean(min_bl_345))/eh.RADPERUAS) + ' uas')
+print('Inverse longest projected baseline: ' + str((1.0/np.mean(max_bl_345))/eh.RADPERUAS) + ' uas')
 print('-'*100)
-
