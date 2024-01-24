@@ -573,4 +573,3 @@ for idir in range(len(outdirs)):
     print('Sgr A* FF at 230 GHz: '+str(ff_230)+' +/- '+str(ffstds[1]))
     print('Sgr A* FF at 345 GHz: '+str(ff_345)+' +/- '+str(ffstds[2]))
     print('-'*40)
-

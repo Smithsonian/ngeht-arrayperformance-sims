@@ -176,8 +176,8 @@ ax1.set_xticklabels(['Option 1',
                      'Option 4c\n(no CNI)',
                      'Option 4d\n(no JELM)',
                      'Option 5'],
-                     rotation=60,
-                     ha='center')
+                    rotation=60,
+                    ha='center')
 ax2.set_xticklabels([])
 
 plt.savefig('comparison_M87.png',dpi=300,bbox_inches='tight')
@@ -249,8 +249,8 @@ ax1.set_xticklabels(['Option 1',
                      'Option 4c\n(no CNI)',
                      'Option 4d\n(no JELM)',
                      'Option 5'],
-                     rotation=60,
-                     ha='center')
+                    rotation=60,
+                    ha='center')
 ax2.set_xticklabels([])
 
 plt.savefig('comparison_SgrA.png',dpi=300,bbox_inches='tight')
