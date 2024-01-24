@@ -2,6 +2,7 @@
 # imports
 
 import numpy as np
+import matplotlib.pyplot as plt
 import ngehtsim.metrics as cm
 import ehtim as eh
 import glob
@@ -103,8 +104,6 @@ for idir, outdir in enumerate(outdirs):
 #######################################################
 # plot things
 
-import matplotlib.pyplot as plt
-
 plt.rcParams.update({
     "text.usetex": True,
     "font.family": "serif",
@@ -138,11 +137,21 @@ ax2 = fig.add_axes([0.1,0.5,0.8,0.4])
 
 x = np.linspace(1.0,len(m_100),len(m_100))
 
-ax2.fill_between([0,20],[-s_100_frac_base,-s_100_frac_base],[s_100_frac_base,s_100_frac_base],color='gray',alpha=0.3,linewidth=0)
+ax2.fill_between([0,20],
+                 [-s_100_frac_base,-s_100_frac_base],
+                 [s_100_frac_base,s_100_frac_base],
+                 color='gray',
+                 alpha=0.3,
+                 linewidth=0)
 ax2.plot([0,20],[0.0,0.0],'k--')
 ax2.errorbar(x,m_100_frac,yerr=s_100_frac,fmt='bo',markersize=4)
 
-ax1.fill_between([0,20],[-s_1000_frac_base,-s_1000_frac_base],[s_1000_frac_base,s_1000_frac_base],color='gray',alpha=0.3,linewidth=0)
+ax1.fill_between([0,20],
+                 [-s_1000_frac_base,-s_1000_frac_base],
+                 [s_1000_frac_base,s_1000_frac_base],
+                 color='gray',
+                 alpha=0.3,
+                 linewidth=0)
 ax1.plot([0,20],[0.0,0.0],'k--')
 ax1.errorbar(x,m_1000_frac,yerr=s_1000_frac,fmt='bo',markersize=4)
 
@@ -156,7 +165,19 @@ ax2.set_ylabel(r'$\Delta$FF100 (\%)')
 
 ax1.set_xticks(x)
 ax2.set_xticks(x)
-ax1.set_xticklabels(['Option 1', 'Option 2', 'Option 3a\n(no SPM)', 'Option 3b\n(no LCO)', 'Option 3c\n(no CNI)', 'Option 3d\n(no JELM)', 'Option 4a\n(no SPM)', 'Option 4b\n(no LCO)', 'Option 4c\n(no CNI)', 'Option 4d\n(no JELM)', 'Option 5'],rotation=60,ha='center')
+ax1.set_xticklabels(['Option 1',
+                     'Option 2',
+                     'Option 3a\n(no SPM)',
+                     'Option 3b\n(no LCO)',
+                     'Option 3c\n(no CNI)',
+                     'Option 3d\n(no JELM)',
+                     'Option 4a\n(no SPM)',
+                     'Option 4b\n(no LCO)',
+                     'Option 4c\n(no CNI)',
+                     'Option 4d\n(no JELM)',
+                     'Option 5'],
+                     rotation=60,
+                     ha='center')
 ax2.set_xticklabels([])
 
 plt.savefig('comparison_M87.png',dpi=300,bbox_inches='tight')
@@ -189,11 +210,21 @@ ax2 = fig.add_axes([0.1,0.5,0.8,0.4])
 
 x = np.linspace(1.0,len(m_100),len(m_100))
 
-ax2.fill_between([0,20],[-s_100_frac_base,-s_100_frac_base],[s_100_frac_base,s_100_frac_base],color='gray',alpha=0.3,linewidth=0)
+ax2.fill_between([0,20],
+                 [-s_100_frac_base,-s_100_frac_base],
+                 [s_100_frac_base,s_100_frac_base],
+                 color='gray',
+                 alpha=0.3,
+                 linewidth=0)
 ax2.plot([0,20],[0.0,0.0],'k--')
 ax2.errorbar(x,m_100_frac,yerr=s_100_frac,fmt='bo',markersize=4)
 
-ax1.fill_between([0,20],[-s_1000_frac_base,-s_1000_frac_base],[s_1000_frac_base,s_1000_frac_base],color='gray',alpha=0.3,linewidth=0)
+ax1.fill_between([0,20],
+                 [-s_1000_frac_base,-s_1000_frac_base],
+                 [s_1000_frac_base,s_1000_frac_base],
+                 color='gray',
+                 alpha=0.3,
+                 linewidth=0)
 ax1.plot([0,20],[0.0,0.0],'k--')
 ax1.errorbar(x,m_1000_frac,yerr=s_1000_frac,fmt='bo',markersize=4)
 
@@ -207,9 +238,20 @@ ax2.set_ylabel(r'$\Delta$FF100 (\%)')
 
 ax1.set_xticks(x)
 ax2.set_xticks(x)
-ax1.set_xticklabels(['Option 1', 'Option 2', 'Option 3a\n(no SPM)', 'Option 3b\n(no LCO)', 'Option 3c\n(no CNI)', 'Option 3d\n(no JELM)', 'Option 4a\n(no SPM)', 'Option 4b\n(no LCO)', 'Option 4c\n(no CNI)', 'Option 4d\n(no JELM)', 'Option 5'],rotation=60,ha='center')
+ax1.set_xticklabels(['Option 1',
+                     'Option 2',
+                     'Option 3a\n(no SPM)',
+                     'Option 3b\n(no LCO)',
+                     'Option 3c\n(no CNI)',
+                     'Option 3d\n(no JELM)',
+                     'Option 4a\n(no SPM)',
+                     'Option 4b\n(no LCO)',
+                     'Option 4c\n(no CNI)',
+                     'Option 4d\n(no JELM)',
+                     'Option 5'],
+                     rotation=60,
+                     ha='center')
 ax2.set_xticklabels([])
 
 plt.savefig('comparison_SgrA.png',dpi=300,bbox_inches='tight')
 plt.close()
-
