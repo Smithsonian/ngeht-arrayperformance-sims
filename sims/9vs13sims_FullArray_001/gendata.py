@@ -137,6 +137,7 @@ im = mod.make_image(1000.0*eh.RADPERUAS,npix=1024)
 im.RA = 17.761122
 im.DEC = -29.00781
 im.source = 'SgrA'
+sm = so.ScatteringModel()
 
 im.rf = 86.0e9
 im_scatt = sm.Scatter(im)
