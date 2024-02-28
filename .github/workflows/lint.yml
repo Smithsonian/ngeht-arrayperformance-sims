@@ -19,4 +19,4 @@ jobs:
           flake8-version: "latest"
           update-pip: true
           max-line-length: "100"
-          ignore: "E123,E127,E128,E221,E226,E231,E272,E501,W503,W504"
+          ignore: "E123,E127,E128,E221,E226,E231,E272,E501,W391,W503,W504"
